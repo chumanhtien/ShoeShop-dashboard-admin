@@ -6,7 +6,7 @@ const Toast = () => {
     <div>
       <ToastContainer
         position="top-right"
-        hideProgressBar={false}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
