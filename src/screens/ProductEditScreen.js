@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "./../components/sidebar";
 import Header from "./../components/Header";
-import EditProductMain from "./../components/products/EditproductMain";
-import products from "./../data/Products";
+import EditProductMain from "../components/products/EditProductMain";
+// import products from "./../data/Products";
+// import { useParams } from "react-router-dom";
 
-const ProductEditScreen = ({ match }) => {
-  const productId = products.find((p) => p._id === match.params.id);
+const ProductEditScreen = () => {
   return (
     <>
       <Sidebar />
       <main className="main-wrap">
         <Header />
-        <EditProductMain productId={productId} />
+        <EditProductMain />
       </main>
     </>
   );

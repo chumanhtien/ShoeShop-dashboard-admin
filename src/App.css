@@ -241,7 +241,10 @@ body.offcanvas-active {
 .content-header .content-title {
   margin-bottom: 0;
 }
-
+.content-title {
+  color: #2a3fff;
+  font-weight: 650;
+}
 .inner {
   padding: 1rem;
 }
@@ -475,6 +478,7 @@ a.itemside:hover .title {
   overflow: hidden;
   position: relative;
   background: white;
+  background-color: mintcream;
 }
 [class*="card-product"] .img-wrap img {
   height: 100%;
@@ -906,4 +910,11 @@ ul.row-sm {
   font-size: 1.2rem;
   line-height: 0.7;
   vertical-align: bottom;
+}
+
+/* BO SUNG */
+
+.form-label {
+  color:#00b517;
+  font-weight: 500;
 }
