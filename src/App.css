@@ -893,17 +893,34 @@ ul.row-sm {
 }
 
 .btn-light {
-  background-color: #fff;
-  border-color: rgba(108, 117, 125, 0.25);
+  /* background-color: #fff; */
+  color: #1cb803;
+  background-color: #1cb803;
+  border-color: #adb5bd;
+  color: #fff;
+  border-color: rgba(1, 136, 255, 0.5);
 }
 .btn-light i {
   color: #adb5bd;
 }
 .btn-light:hover {
-  background-color: #fff;
-  border-color: #adb5bd;
+  background-color: green;
+  color: #fff;
+  border-color: rgba(1, 136, 255, 0.5);
 }
 
+.btn-dark-delivered {
+  background-color: seagreen;
+  color: #fff;
+  border-color: rgba(1, 136, 255, 0.5);
+
+}
+.btn-dark-delivered:hover{
+  background-color: black;
+  color: #fff;
+  border-color: rgba(1, 136, 255, 0.5);
+
+}
 .btn-drag {
   padding: 5px 2px;
   display: inline-block;

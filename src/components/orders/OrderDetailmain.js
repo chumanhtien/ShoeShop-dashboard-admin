@@ -3,7 +3,7 @@ import OrderDetailProducts from "./OrderDetailProducts";
 import OrderDetailInfo from "./OrderDetailInfo";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleOrderDetails } from "../../Redux/Actions/OrderActions";
+import { getSingleOrderDetails, makeOrderDelivered } from "../../Redux/Actions/OrderActions";
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
 import moment from "moment";
@@ -13,13 +13,18 @@ const OrderDetailMain = (props) => {
   // console.log(orderId);
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.orderDetails);
-
   const {loading, error, order} = orderDetails;
+
+  const orderDelivery = useSelector((state) => state.orderDelivery);
+  const {loading: loadingDelivered, success: successDelivered} = orderDelivery;
 
   useEffect(() => {
     dispatch(getSingleOrderDetails(orderId));
-  }, [dispatch, orderId]);
+  }, [dispatch, orderId, successDelivered]);
   
+  const deliveredHandler = () => {
+    dispatch(makeOrderDelivered(order));
+  }
   return (
     <section className="content-main">
       <div className="content-header">
@@ -73,9 +78,21 @@ const OrderDetailMain = (props) => {
             {/* Payment Info */}
             <div className="col-lg-3">
               <div className="box shadow-sm bg-light">
-                <button className="btn btn-dark col-12">
-                  MARK AS DELIVERED
-                </button>
+                {
+                  order.isDelivered ? (
+                    <button className="btn btn-dark-delivered col-12">
+                      DELIVERED AT {moment(order.deliveredAt).format("llll")}
+                    </button>
+                  ) : (
+                    <>
+                      {loadingDelivered && <Loading/>}
+                      <button onClick={deliveredHandler} className="btn btn-light col-12">
+                        MARK AS DELIVERED
+                      </button>
+                    </>
+                  )
+                }
+                
               </div>
             </div>
           </div>
