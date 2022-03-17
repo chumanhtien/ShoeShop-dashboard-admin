@@ -6,8 +6,10 @@ INCLUDE STYLES AND COMPONENTS
 /* ================== HELPERS =================== */
 /* NOTE: CHANGE FROM GREEN: 4fa607 to GREEN: 1cb803 */
 .table thead th {
-  color: #adb5bd;
-  font-weight: 400;
+  /* color: #adb5bd;
+  font-weight: 400; */
+  color: #1cb803;
+  font-weight: 700;
 }
 .table-lg td,
 .table-lg th {
@@ -561,7 +563,9 @@ a.itemside:hover .title {
 }
 .dlist dt {
   width: 150px;
-  font-weight: normal;
+  /* font-weight: normal; */
+  font-weight: 500;
+  color: darkgreen;
 }
 .dlist dd {
   margin-left: 30px;
@@ -918,3 +922,12 @@ ul.row-sm {
   color:#00b517;
   font-weight: 500;
 }
+
+  /*SHIPPING INFO */
+  .mb-2 {
+    color: darkcyan;
+  }
+  .name-bold {
+    font-weight: 500;
+  }
+  

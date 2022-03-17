@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import "./responsive.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,7 +14,21 @@ import UsersScreen from "./screens/UsersScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import NotFound from "./screens/NotFound";
 import PrivateRouter  from "./PrivateRouter";
+import { useDispatch, useSelector } from "react-redux";
+import { getListProducts } from "./Redux/Actions/ProductActions";
+import { getALLOrders } from "./Redux/Actions/OrderActions";
 function App() {
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const {userInfo} = userLogin;
+
+  useEffect(() => {
+    if(userInfo && userInfo.isAdmin) {
+      dispatch(getListProducts());
+      dispatch(getALLOrders());
+    }
+  }, [dispatch, userInfo])
   return (
     <>
       <Router>
@@ -24,7 +38,7 @@ function App() {
             <Route path="/products" element={<ProductScreen/>} />
             <Route path="/category" element={<CategoriesScreen/>} />
             <Route path="/orders" element={<OrderScreen/>} />
-            <Route path="/order" element={<OrderDetailScreen/>} />
+            <Route path="/order/:id" element={<OrderDetailScreen/>} />
             <Route path="/addproduct" element={<AddProduct/>} />
             <Route path="/users" element={<UsersScreen/>} />
             <Route path="/product/:id/edit" element={<ProductEditScreen/>} />

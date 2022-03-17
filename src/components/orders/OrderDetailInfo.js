@@ -1,6 +1,8 @@
 import React from "react";
 
-const OrderDetailInfo = () => {
+const OrderDetailInfo = (props) => {
+  const {order} = props;
+
   return (
     <div className="row mb-5 order-info-wrap">
       <div className="col-md-6 col-lg-4">
@@ -11,8 +13,8 @@ const OrderDetailInfo = () => {
           <div className="text">
             <h6 className="mb-1">Customer</h6>
             <p className="mb-1">
-              User Adamu <br />
-              <a href={`mailto:user@example.com`}>user@example.com</a>
+              <span className="name-bold mb-2">{order.user.name}</span> <br />
+              <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
             </p>
           </div>
         </article>
@@ -25,7 +27,8 @@ const OrderDetailInfo = () => {
           <div className="text">
             <h6 className="mb-1">Order info</h6>
             <p className="mb-1">
-              Shipping: Tanzania <br /> Pay method: PayPal
+              <span className="mb-2">Shipping:</span> {order.shippingAddress.country} <br /> 
+              <span className="mb-2">Pay method:</span> {order.paymentMethod}
             </p>
           </div>
         </article>
@@ -38,10 +41,9 @@ const OrderDetailInfo = () => {
           <div className="text">
             <h6 className="mb-1">Deliver to</h6>
             <p className="mb-1">
-              Address: Arusha
+              <span className="mb-2">Address:</span> {order.shippingAddress.address}, {order.shippingAddress.city}.
               <br />
-              Ngaramtoni Crater
-              <br /> P.O Box Arusha Tz 1234
+              <span className="mb-2">POX:</span> {order.shippingAddress.postalCode}
             </p>
           </div>
         </article>
