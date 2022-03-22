@@ -1,14 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Orders from "./Orders";
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
+import { getALLOrders } from "../../Redux/Actions/OrderActions";
 
 const OrderMain = () => {
-
   const orderGetAll = useSelector((state) => state.orderGetAll);
   const {loading, error, orders} = orderGetAll;
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getALLOrders());
+  }, [dispatch])
   return (
     <section className="content-main">
       <div className="content-header">

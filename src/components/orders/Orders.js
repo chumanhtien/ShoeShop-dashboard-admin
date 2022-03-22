@@ -4,9 +4,11 @@ import moment from "moment";
 
 const Orders = (props) => {
   const {orders} = props;
-  console.log(orders);
+  // console.log(orders);
 
+  // useEffect(() => {
 
+  // }, [orders]);
   return (
     <table className="table">
       <thead>

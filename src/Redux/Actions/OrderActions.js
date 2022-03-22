@@ -71,7 +71,7 @@ export const getSingleOrderDetails = (id) => async(dispatch, getState) => {
     }
 };
 
-//GET SINGLE ORDER DETAILS
+//GET SINGLE ORDER DELIVERED
 export const makeOrderDelivered = (order) => async(dispatch, getState) => {
     try {
         dispatch({type: ORDER_DELIVERED_REQUEST});

@@ -22,7 +22,7 @@ const LatestOrder = (props) => {
                   orders.slice(0,5).map((order) => (
                     <tr key={order._id}>
                       <td>
-                        <b>{order.user.name}</b>
+                        <b style={{color: "blue"}}>{order.user.name}</b>
                       </td>
                       <td>{order.user.email}</td>
                       <td>${order.totalPrice}</td>

@@ -1,12 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+const restartHomePage = () => {
+  window.location.href= "/"
+}
 const Sidebar = () => {
   return (
     <div>
       <aside className="navbar-aside" id="offcanvas_aside">
         <div className="aside-top">
-          <Link to="/" className="brand-wrap">
+          <Link to="#" className="brand-wrap" onClick={restartHomePage}>
             <img
               src="/images/logo.png"
               style={{ height: "46" }}
